@@ -1,10 +1,9 @@
+import HeroTeam from "./TeamPage/HeroTeam";
+
 function Team(){
     return (
-    <div>
-      <h1>הצוות שלנו</h1>
-      <p>כאן תוכל להכיר את הרופאים, הסייעות והצוות המקצועי שלנו במרפאת השיניים רמלה.</p>
-    </div>
-  );
+    <HeroTeam />
+  )
 }
 
 export default Team;

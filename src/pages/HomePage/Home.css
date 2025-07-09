@@ -63,14 +63,6 @@ html {
   }
 }
 
-.home-description {
-  z-index: 1;
-  font-size: 1.2rem;
-  color: #120e0e;
-  margin-bottom: 1rem;
-  direction: rtl;
-}
-
 .home-button {
   background-color: #00acc6;
   color: white;
@@ -85,6 +77,62 @@ html {
 .home-button:hover {
   background-color: #008ca5;
   transform: translateY(-2px);
+}
+
+.categories-section {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #00385b;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+}
+
+.category-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.service-title {
+  font-size: 1.3rem;
+  color: hsla(210, 70%, 75%, 1);
+  margin-bottom: 10px;
+}
+
+.category-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.category-img {
+  width: 100%;
+  margin-top: auto;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 768px) {
@@ -111,8 +159,8 @@ html {
 }
 
 .middle-container {
-  padding: 60px 20px;
-  background-color: #e1c0c0;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
 }
 
 .middle-content {
@@ -130,8 +178,14 @@ html {
 .middle-logo {
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+.title-middle {
+  color: #00385b;
+  font-size: 2.3rem;
+  text-align: right;
+  direction: rtl;
 }
 
 .middle-description {
@@ -152,11 +206,11 @@ html {
     text-align: center;
     align-items: center;
   }
-  
+
   .middle-logo-container {
     margin-bottom: 24px;
   }
-  
+
   .middle-description {
     max-width: 100%;
   }
@@ -166,53 +220,9 @@ html {
   .middle-container {
     padding: 40px 15px;
   }
-  
+
   .home-description {
     font-size: 1rem;
     line-height: 1.5;
   }
-}
-
-.services-section {
-  padding: 50px 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.service-card {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  width: 280px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.service-title {
-  font-size: 1.3rem;
-  color: #2c3e50;
-  margin-bottom: 10px;
-}
-
-.service-description {
-  font-size: 1rem;
-  color: #555;
 }
