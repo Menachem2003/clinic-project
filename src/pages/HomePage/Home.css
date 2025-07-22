@@ -15,6 +15,9 @@ html {
   padding: 0;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .hero-home {
@@ -30,6 +33,7 @@ html {
 }
 .titel-picture {
   position: relative;
+  width: 100%;
 }
 
 .hero-content {
@@ -39,6 +43,7 @@ html {
   left: 50%;
   translate: -50% -50%;
   text-align: center;
+  z-index: 1;
 }
 
 .home-title {
@@ -79,7 +84,7 @@ html {
   transform: translateY(-2px);
 }
 
-.categories-section {
+.services-section {
   padding: 50px 20px;
   background-color: #f9f9f9;
   text-align: center;
@@ -98,7 +103,7 @@ html {
   gap: 70px;
 }
 
-.category-card {
+.services-card {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -110,7 +115,7 @@ html {
   cursor: pointer;
 }
 
-.category-card:hover {
+.services-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
@@ -121,13 +126,13 @@ html {
   margin-bottom: 10px;
 }
 
-.category-description {
+.services-description {
   font-size: 1rem;
   color: #555;
   margin-bottom: 12px;
 }
 
-.category-img {
+.services-img {
   width: 100%;
   margin-top: auto;
   height: 200px;
@@ -178,7 +183,6 @@ html {
 .middle-logo {
   width: 100%;
   height: auto;
-
 }
 
 .title-middle {

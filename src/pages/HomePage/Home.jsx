@@ -1,13 +1,13 @@
 import Middlehome from "./component/MiddleHome";
 import HeroSection from "./component/HeroSection";
-import CategoriesSection from "./component/CategoriesSection";
+import ServicesSection from "./component/ServicesSection";
 import "./Home.css";
 
 function Home() {
   return (
     <div className="container">
       <HeroSection />
-      <CategoriesSection />
+      <ServicesSection />
       <Middlehome />
     </div>
   );
