@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../../../utils/api";
 
-export default function FilterByCategory({
+export default function SelectProducts({
   setSelectedCategory,
   selectedCategory,
 }) {
@@ -13,12 +13,9 @@ export default function FilterByCategory({
     const fetchCategories = async () => {
       try {
         setIsLoading(true);
-        const { data } = await axios.get("http://localhost:3000/products/categories");
-        const formattedCategories = data.map(catName =>({
-          categoryCode: catName, 
-          categoryName: catName
-        }));
-        setCategories(formattedCategories);
+        const { data } = await api.get("categories");
+
+        setCategories(data);
       } catch (err) {
         console.log(err);
         if (err.status === 404) {
@@ -34,35 +31,23 @@ export default function FilterByCategory({
   }, []);
 
   return (
-    <div className="container">
-      <div className="flex-1">
-        <label
-          htmlFor="category"
-        >
-          קטגוריה
-        </label>
-        {isLoading && <p>טוען</p>}
-        {error && <p className="error-message">{error}</p>}
-        <select
-          id="category"
-          name="category"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="">כל הקטגוריות</option>
-          {categories.map((c) => (
-            <option value={c.categoryCode} key={c.categoryCode}>
-              {c.categoryName}
-            </option>
-          ))}
-        </select>
-      </div>
-      <button
-        onClick={() => setSelectedCategory("")}
+    <>
+      {isLoading && <p className="filter-loading">טוען</p>}
+      {error && <p className="filter-error-message">{error}</p>}
+      <select
+        id="category"
+        value={selectedCategory}
+        onChange={(e) => setSelectedCategory(e.target.value)}
+        className="input-filter-product"
+        aria-label="בחר קטגוריה"
       >
-        נקה 
-      </button>
-    </div>
+        <option value="">כל הקטגוריות</option>
+        {categories.map(({ name, categoryCode, _id }, index) => (
+          <option key={_id} value={categoryCode}>
+            {name}
+          </option>
+        ))}
+      </select>
+    </>
   );
 }
-       

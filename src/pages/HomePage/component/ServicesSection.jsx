@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { api } from "../../../utils/api";
+import { Link } from 'react-router-dom';
 
 export default function ServicesSection() {
   const [services, setServices] = useState([]);
@@ -9,12 +10,11 @@ export default function ServicesSection() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3000/services");
+        const { data } = await api.get("services");
         setServices(data.data);
         console.log("data from server:", data);
         console.log("type of data:", typeof data);
         console.log("isArray:", Array.isArray(data));
-
         setError("");
       } catch (err) {
         console.error("Failed to fetch services", err);
@@ -40,17 +40,22 @@ export default function ServicesSection() {
     <div className="services-section">
       <h2 className="section-title">השירותים שלנו</h2>
 
+      {loading && <p>טוען שירותים...</p>}
+      {error && <p className="error-message">{error}</p>}
+
       <div className="cards-container">
         {services.map((service) => (
-          <div key={service._id} className="services-card">
-            <h3 className="service-title">{service.name}</h3>
-            <p className="services-description">{service.description}</p>
-            <img
-              src={service.img}
-              alt={service.name}
-              className="services-img"
-            />
-          </div>
+          <Link to="/contact" key={service._id}  className="service-card-link"> 
+            <div className="services-card">
+              <h3 className="service-title">{service.name}</h3>
+              <p className="services-description">{service.description}</p>
+              <img
+                src={service.img}
+                alt={service.name}
+                className="services-img"
+              />
+            </div>
+          </Link>
         ))}
       </div>
     </div>

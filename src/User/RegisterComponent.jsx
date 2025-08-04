@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./Register.css";
+import { api } from "../utils/api";
 
 function RegisterComponent() {
   const [message, setMessage] = useState();
@@ -20,7 +20,7 @@ function RegisterComponent() {
     e.preventDefault();
     setIsError(false);
     try {
-      const { data } = await axios.post("http://localhost:3000/auth/signup", {
+      const { data } = await api.post("auth/signup", {
         name,
         email,
         password,

@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
-import axios from "axios";
 import "./Login.css";
 import AuthContext from "../contexts/AuthContext";
+import { api } from "../utils/api";
+import { useNavigate } from "react-router-dom";
 
 function LoginComponent() {
+  const nav = useNavigate();
   const { setUser } = useContext(AuthContext);
   const [message, setMessage] = useState();
   const [isError, setIsError] = useState(false);
@@ -22,7 +24,7 @@ function LoginComponent() {
     setIsError(false);
 
     try {
-      const { data } = await axios.post("http://localhost:3000/auth/login", {
+      const { data } = await api.post("auth/login", {
         email,
         password,
       });
@@ -30,7 +32,7 @@ function LoginComponent() {
       console.log("Login successful:", data);
       setUser(data.user);
       localStorage.setItem("token", data.token);
-
+      nav("/");
       setMessage("התחברת בהצלחה");
     } catch (error) {
       console.error(

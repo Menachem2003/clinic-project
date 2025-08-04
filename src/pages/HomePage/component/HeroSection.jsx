@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function HeroSection() {
   return (
     <div className="titel-picture">
@@ -6,7 +8,9 @@ export default function HeroSection() {
         <h1 className="home-title">
           ברוכים הבאים למרפאה עירונית מלכידנט
         </h1>
+        <Link to="/contact">
         <button className="home-button">לקביעת תור</button>
+        </Link>
       </div>
     </div>
   );
